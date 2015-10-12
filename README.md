@@ -16,7 +16,7 @@ This script extracts each downaloded .tar.gz to its own directory.
 Image directory will contain single-band images (raw and sr) and QA bands
 
 #### 3_remove_L1G.sh
-Before stacking images, remove all L1G files 
-(Georeferencing of L1G not suitable for time series analysis)
+Before stacking images, remove all L1G files. 
+(Georeferencing of L1G not suitable for time series analysis, use only if image is L1T)
 
 
