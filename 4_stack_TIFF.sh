@@ -23,7 +23,7 @@ fmask="*cfmask.tif"
 landsat_stack.py -q -p --files "$sr $fmask" \
     --ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 255" \
     --utm 19 -o "_stack" \
-    --format "ENVI" --co "INTERLEAVE=BIP" --min_extent ./
+    --format "ENVI" --co "INTERLEAVE=BIP" --percentile 1 ./
     
 #    --image="/projectnb/landsat/projects/IDS/p012r031/images/LE70120311999188EDC00/LE70120311999188EDC00_stack" ./
     
