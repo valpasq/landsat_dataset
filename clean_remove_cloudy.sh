@@ -16,4 +16,4 @@ here=$1
 
 cd $here
 
-remove_cloudy.py -v --fmask "*stack" --band 8 --clear "0, 1, 3" 95 ./
+remove_cloudy.py -v --fmask "*stack" --band 8 --clear "0, 1" 20 ./
