@@ -1,4 +1,8 @@
 #!/bin/bash
+#$ -l h_rt=72:00:00
+#$ -V
+#$ -N landsat_stack_wTC
+#$ -j y
 
 source ~/modules.sh
 
@@ -21,6 +25,6 @@ landsat_stack.py -q -p --files "$stack; $TC; $stack" \
     -b "1 2 3 4 5 6 7; 1 2 3; 8" \
     -n "-9999 -9999 -9999 -9999 -9999 -9999 -9999; -9999 -9999 -9999; 255" \
     --utm 19 -o "*_all" \
-    --format "ENVI" --co "INTERLEAVE=BIP" --percentile 1 ./
+    --format "ENVI" --co "INTERLEAVE=BIP" --max_extent ./
 
 
