@@ -4,10 +4,14 @@
 #$ -N download_landsat
 #$ -j y
 
+EMAIL=$1
+ORDER=$2
+DIR=$3
+
 source ~/modules.sh
 
-cd /usr3/graduate/valpasq/Documents/landsat_process/bulk-downloader/
+cd ~/Documents/landsat_process/bulk-downloader/
 
-python download_espa_order.py -e valpasq@bu.edu \
-	-o ALL -c \
-	-d /projectnb/landsat/projects/Massachusetts/
+python download_espa_order.py -e $EMAIL \
+	-o $ORDER -c \
+	-d $DIR
