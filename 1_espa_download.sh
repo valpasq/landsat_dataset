@@ -6,12 +6,8 @@
 
 source ~/modules.sh
 
-cd /usr3/graduate/valpasq/Documents/landsat_process/espa_bulk_downloader_v1.0.0/
+cd /usr3/graduate/valpasq/Documents/landsat_process/bulk-downloader/
 
-echo "ESPA Download currently out-of-order"
-echo "Last run: 10/12/14, could not unzip all files (corrupt?)"
-echo "Use DownloadThenAll instead!"
-
-#python download_espa_order.py -e valpasq@bu.edu \
-#	-o valpasq@bu.edu-10092015-121456 \
-#	-d /projectnb/landsat/projects/Massachusetts/p012r031/
+python download_espa_order.py -e valpasq@bu.edu \
+	-o ALL -c \
+	-d /projectnb/landsat/projects/Massachusetts/
