@@ -62,13 +62,13 @@ Create stack of original bands, TC, and fmask result <br>
 
 ### Additional scripts:
 #### clean_remove_cloudy.sh
-Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to a "cloudy" directory.
+Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to ```./images/cloudy/``` directory.
 <br>
 
 #### clean_remove_org_inputs.sh
 For file clean up after stacking (typically used after 4_stack_TIFF) <br>
-Removes original bands 'L\*B[1-8]\*.TIF', surface reflectance products 'L\*sr\*.tif', brightness temperature 'L\*toa\*.tif', and fmask results 'L\*cfmask\*' <br>
-Archive (.tar.gz) is retained, can always unzip again to restore single band files.
+Removes original bands ```'L\*B[1-8]\*.TIF'```, surface reflectance products ```'L\*sr\*.tif'```, brightness temperature ```'L\*toa\*.tif'```, and fmask results ```'L\*cfmask\*'``` <br>
+Archive (```.tar.gz```) is retained, can always unzip again to restore single band files.
 <br> 
 
 #### create_example_img.sh
