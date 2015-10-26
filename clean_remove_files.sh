@@ -7,25 +7,14 @@ if [ -z "$1" ]; then
 fi
 
 here=$1
+fileID=$2
 
 cd $here
 
-# Remove raw band TIFFs
-#find ./ -name 'L*band*.tif' -exec rm -v {} \;
-find ./ -regextype posix-egrep -regex 'L.*[^sr]_band.*.tif' -exec rm -v {} \;
+# General pattern for removing files
+find ./ -name $fileID -exec rm -v {} \;
 
-# Remove LEDAPS and indicies TIFFs
-#find ./ -name 'L*sr*.tif' -exec rm -v {} \;
-find ./ -regextype posix-egrep -regex 'L.*sr_band.*.tif' -exec rm -v {} \;
-
-# Remove brightness temperature TIFFs
-#find ./ -name 'L*toa*.tif' -exec rm -v {} \;
-
-# Remove fmask TIFFs
-#find ./ -name 'L*cfmask.tif' -exec rm -v {} \;
-
-# Remove stats images (not useful)
-#find ./ -name '*.png' -exec rm -v {} \;
+# EXAMPLES:
 
 # Remove stats files (not useful)
 #find ./ -name '*stats.csv' -exec rm -v {} \;
@@ -37,7 +26,10 @@ find ./ -regextype posix-egrep -regex 'L.*sr_band.*.tif' -exec rm -v {} \;
 #find ./ -name '*_stack*' -exec rm -v {} \;
 
 # Remove BGW
-find ./ -name '*_BGW.tif*' -exec rm -v {} \;
+#find ./ -name '*_BGW*' -exec rm -v {} \;
+
+# Remove VRT
+#find ./ -name '*_VRT.vrt' -exec rm -v {} \;
 
 
 echo "Done!"
