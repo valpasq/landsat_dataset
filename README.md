@@ -6,26 +6,26 @@ After downloading LT 4/5 and LE 7 comma-separated files from Earth Explorer,
 use this script to create a single text file that can be submitted to ESPA.
 
 Usage:
-0_gen_espa_list.sh [image directory] [WRS string]
+```0_gen_espa_list.sh [image directory] [WRS string]```
 
 Example:
-Earth Explorer File 1 - LSR_LANDSAT_ETM_COMBINED_p013r031.txt**
-Earth Explorer File 2 - LSR_LANDSAT_TM_p013r031.txt**
+```Earth Explorer File 1 - LSR_LANDSAT_ETM_COMBINED_p013r031.txt```**
+```Earth Explorer File 2 - LSR_LANDSAT_TM_p013r031.txt```**
 
 **Note: Need to rename .csv outputs where order ID is replaced by WRS string
 
 Command line -
-~/Documents/landsat_process/0_gen_espa_list.sh ./p012r031/images/ "p012r031"
+```~/Documents/landsat_process/0_gen_espa_list.sh ./p012r031/images/ "p012r031"```
 
 
 #### 1_espa_download.sh
 Downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
 
 Usage:
-1_espa_download.sh [email] [order ID] [dir]
+```1_espa_download.sh [email] [order ID] [dir]```
 
 Example:
-~/Documents/landsat_process/1_espa_download.sh valpasq@bu.edu valpasq@bu.edu-10162015-081003 ./images/
+```~/Documents/landsat_process/1_espa_download.sh valpasq@bu.edu valpasq@bu.edu-10162015-081003 ./images/```
 
 
 #### 2_unzip_archive.sh
