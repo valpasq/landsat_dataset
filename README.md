@@ -16,7 +16,8 @@ use this script to create a single text file that can be submitted to ESPA.
 
 **Command line:** </br>
 ```~/Documents/landsat_process/0_gen_espa_list.sh ./p012r031/images/ "p012r031"```
-
+<br>
+<br>
 
 #### 1_espa_download.sh
 Downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
@@ -30,31 +31,31 @@ Downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
 <br>
 
 #### 2_unzip_archive.sh
-This script extracts each downaloded .tar.gz to its own directory. 
+This script extracts each downaloded .tar.gz to its own directory. <br>
 Image directory will contain single-band images (raw and sr) and QA bands
 <br>
 <br>
 
 #### 3_remove_L1G.sh
-Before stacking images, remove all L1G files. 
+Before stacking images, remove all L1G files. <br>
 (Georeferencing of L1G not suitable for time series analysis, use only if image is L1T)
 <br>
 <br>
 
 #### 4_stack_TIFF
-Create stack of original bands plus Fmask result 
+Create stack of original bands plus Fmask result <br> 
 *Band order:* 1-5, 7, 6, fmask [8 band stack]
 <br>
 <br>
 
 #### 5_TC_Transform
-Output BGW stack
+Output BGW stack <br>
 *Band order:* Brightness, Greenness, Wetness
 <br>
 <br>
 
 ### 6_stack_wTC
-Create stack of original bands, TC, and fmask result
+Create stack of original bands, TC, and fmask result <br>
 *Band order:* 1-5,7 6, B, G, W, fmask [11 band stack]
 <br>
 <br>
