@@ -67,7 +67,7 @@ Moves images where percentage of image covered by clouds and cloud shadows is gr
 
 #### clean_remove_org_inputs.sh
 For file clean up after stacking (typically used after 4_stack_TIFF) <br>
-Removes original bands ```'L\*B[1-8]\*.TIF'```, surface reflectance products ```'L\*sr\*.tif'```, brightness temperature ```'L\*toa\*.tif'```, and fmask results ```'L\*cfmask\*'``` <br>
+Removes original bands ```'L*B[1-8]*.TIF'```, surface reflectance products ```'L*sr*.tif'```, brightness temperature ```'L*toa*.tif'```, and fmask results ```'L*cfmask*'``` <br>
 Archive (```.tar.gz```) is retained, can always unzip again to restore single band files.
 <br> 
 
