@@ -54,21 +54,20 @@ Output BGW stack <br>
 <br>
 <br>
 
-### 6_stack_wTC
+#### 6_stack_wTC
 Create stack of original bands, TC, and fmask result <br>
 *Band order:* 1-5,7 6, B, G, W, fmask [11 band stack]
 <br>
 <br>
 
 ### Additional scripts:
-<br>
 #### clean_remove_cloudy.sh
 Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to a "cloudy" directory.
 <br>
 <br>
 #### clean_remove_org_inputs.sh
 For file clean up after stacking (4_stack_TIFF) <br>
-Removes original bands 'L*B[1-8]*.TIF', surface reflectance products 'L*sr*.tif', brightness temperature 'L*toa*.tif', and fmask results 'L*cfmask*' <br>
+Removes original bands 'L\*B[1-8]\*.TIF', surface reflectance products 'L\*sr\*.tif', brightness temperature 'L\*toa\*.tif', and fmask results 'L\*cfmask\*' <br>
 Archive (.tar.gz) is retained, can always unzip again to restore single band files.
 
 
