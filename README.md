@@ -71,6 +71,21 @@ Removes original bands ```'L*B[1-8]*.TIF'```, surface reflectance products ```'L
 Archive (```.tar.gz```) is retained, can always unzip again to restore single band files.
 <br> 
 
+#### clean_remove_general.sh
+Used to remove files from all L* directories <br>
+
+**Usage:** </br>
+```clean_remove_general.sh [dir] [text to match]```
+
+**Examples:** </br>
+Remove _stack and _BGW images after creating 11-band stack
+```~/Documents/landsat_process/clean_remove_general.sh ./p012r031/images/ "*_stack*"```
+```~/Documents/landsat_process/clean_remove_general.sh ./p012r031/images/ "*_BGW*"```
+<br>
+<br>
+
+<br> 
+
 #### create_example_img.sh
 Creates ```example_img``` file <br>
 
