@@ -60,9 +60,10 @@ Create stack of original bands, TC, and fmask result <br>
 <br>
 <br>
 
-### Additional scripts:
+### Additional scripts: 
 #### clean_remove_cloudy.sh
 Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to ```./images/cloudy/``` directory.
+<br>
 <br>
 
 #### clean_remove_org_inputs.sh
@@ -70,6 +71,7 @@ For file clean up after stacking (typically used after 4_stack_TIFF) <br>
 Removes original bands ```'L*B[1-8]*.TIF'```, surface reflectance products ```'L*sr*.tif'```, brightness temperature ```'L*toa*.tif'```, and fmask results ```'L*cfmask*'``` <br>
 Archive (```.tar.gz```) is retained, can always unzip again to restore single band files.
 <br> 
+<br>
 
 #### clean_remove_general.sh
 Used to remove files from all L* directories <br>
@@ -83,8 +85,6 @@ Remove _stack and _BGW images after creating 11-band stack
 ```~/Documents/landsat_process/clean_remove_general.sh ./p012r031/images/ "*_BGW*"```
 <br>
 <br>
-
-<br> 
 
 #### create_example_img.sh
 Creates ```example_img``` file <br>
