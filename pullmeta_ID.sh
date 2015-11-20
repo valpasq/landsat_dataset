@@ -6,11 +6,12 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+# First input is location of image directory
 here=$1
-
 cd $here
 
-output=./p011r031_clear_80.txt
+# Second input is output file name, e.g. output=./p011r031_clear_80.txt
+output=$2
 
 
 # ID AND DATE - FOR SYMBOLOGY
