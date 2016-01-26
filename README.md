@@ -4,7 +4,7 @@ Numbered scripts correspond to the most basic processing steps (list, download, 
 All other scripts are grouped by general purpose (clear, fix, stack, transform). </br>
 
 ## Basic processing:
-#### 0_gen_espa_list.sh
+#### ```0_gen_espa_list.sh```
 Use this script to create a list of images for an ESPA order Script is used after downloading a full list of LT 4/5 and LE 7 comma-separated files from Earth Explorer. File naming convention: LSR_LANDSAT_ETM_COMBINED_pXXXrXXX.txt; LSR_LANDSAT_TM_pXXXrXXX.txt
 
 **Usage:**</br>
@@ -52,7 +52,7 @@ This script create stacks of original bands plus Fmask result and organizes imag
 
 ### Tranformations:
 
-#### transform_TC.sh
+#### ```transform_TC.sh```
 Applies Tassled Cap tranformation for Landsat reflectance factor data (Crist 1985)
 using /ceholden/misc/spectral/transforms.py.
 
@@ -61,7 +61,7 @@ Generates new 3-band "L*_BGW.tif" stack <br>
 <br>
 <br>
 
-#### transform_index.sh
+#### ```transform_index.sh```
 Applies a variety of index tranformations using /ceholden/misc/spectral/transforms.py. 
 Options: NDVI, NBR, NDMI, EVI.
 Generates new "L*_index.tif" stack <br>
@@ -71,28 +71,28 @@ Generates new "L*_index.tif" stack <br>
 
 ### Stacking:
 
-#### stack_wTC
+#### ```stack_wTC.sh```
 Create stack of original bands, TC, and fmask result <br>
 *Band order:* 1-5,7 6, B, G, W, fmask [11 band stack]
 <br>
 <br>
 
 
-### Directory Cleanup: 
+### Directory Clean-up: 
 
-#### clean_remove_cloudy.sh
+#### ```clean_remove_cloudy.sh```
 Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to ```./images/cloudy/``` directory.
 <br>
 <br>
 
-#### clean_remove_org_inputs.sh
+#### ```clean_remove_org_inputs.sh```
 For file clean up after stacking (typically used after 4_stack_TIFF) <br>
 Removes original bands ```'L*B[1-8]*.TIF'```, surface reflectance products ```'L*sr*.tif'```, brightness temperature ```'L*toa*.tif'```, and fmask results ```'L*cfmask*'``` <br>
 Archive (```.tar.gz```) is retained, can always unzip again to restore single band files.
 <br> 
 <br>
 
-#### clean_remove_general.sh
+#### ```clean_remove_general.sh```
 Used to remove files from all L* directories <br>
 
 **Usage:** </br>
@@ -108,7 +108,7 @@ Remove _stack and _BGW images after creating 11-band stack
 
 ### Create example image:
 
-#### create_example_img.sh
+#### ```create_example_img.sh```
 Creates ```example_img``` file for time series model configuration<br>
 
 
