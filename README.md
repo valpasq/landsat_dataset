@@ -4,9 +4,7 @@ Numbered scripts correspond to the most basic processing steps (list, download, 
 All other scripts are grouped by general purpose (clear, fix, stack, transform). </br>
 
 ## Basic processing:
-<br>
-<br>
-#### List: 0_gen_espa_list.sh
+#### 0_gen_espa_list.sh
 Use this script to create a list of images for an ESPA order Script is used after downloading a full list of LT 4/5 and LE 7 comma-separated files from Earth Explorer. File naming convention: LSR_LANDSAT_ETM_COMBINED_pXXXrXXX.txt; LSR_LANDSAT_TM_pXXXrXXX.txt
 
 **Usage:**</br>
@@ -21,7 +19,7 @@ Use this script to create a list of images for an ESPA order Script is used afte
 <br>
 <br>
 
-#### Download: 1_espa_download.sh
+#### 1_espa_download.sh
 This script downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
 
 **Usage:** </br>
@@ -32,18 +30,18 @@ This script downloads single or all orders from ESPA; eliminates need to use Dow
 <br>
 <br>
 
-#### Unzip: 2_unzip_archive.sh
+#### 2_unzip_archive.sh
 This script extracts each downaloded .tar.gz to its own directory. <br>
 Image directory will contain single-band images (raw and sr) and QA bands
 <br>
 <br>
 
-#### Remove L1G: 3_remove_L1G.sh
+#### 3_remove_L1G.sh
 This script removes all L1G images prior to stacking. Only L1T images will be stacked and used in time series analysis<br>
 <br>
 <br>
 
-#### 8-band stack: 4_stack_TIFF
+#### 4_stack_TIFF
 This script create stacks of original bands plus Fmask result and organizes image directories <br> 
 *Band order:* 1-5, 7, 6, fmask [8 band stack]
 <br>
