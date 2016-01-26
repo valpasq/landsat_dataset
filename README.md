@@ -1,26 +1,28 @@
-# landsat_process
-Shell scripts for running general Landsat processing
+# landsat_dataset
+This is a repository of example shell scripts for running general Landsat processing. </br>
+Numbered scripts correspond to the most basic processing steps (list, download, unzip, remove l1G and stack). </br>
+All other scripts are grouped by general purpose (clear, fix, stack, transform). </br>
 
-#### 0_gen_espa_list.sh
-After downloading LT 4/5 and LE 7 comma-separated files from Earth Explorer, 
-use this script to create a single text file that can be submitted to ESPA.
+## Basic processing:
+<br>
+<br>
+#### List: 0_gen_espa_list.sh
+Use this script to create a list of images for an ESPA order Script is used after downloading a full list of LT 4/5 and LE 7 comma-separated files from Earth Explorer. File naming convention: LSR_LANDSAT_ETM_COMBINED_pXXXrXXX.txt; LSR_LANDSAT_TM_pXXXrXXX.txt
 
 **Usage:**</br>
 ```0_gen_espa_list.sh [image directory] [WRS string]```
 
 **Example of files:**</br>
-```Earth Explorer File 1 - LSR_LANDSAT_ETM_COMBINED_p013r031.txt```</br>
-```Earth Explorer File 2 - LSR_LANDSAT_TM_p013r031.txt```</br>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: Need to rename .csv outputs where order ID is replaced by WRS string
+```Earth Explorer File 1: LSR_LANDSAT_ETM_COMBINED_p013r031.txt```</br>
+```Earth Explorer File 2: LSR_LANDSAT_TM_p013r031.txt```</br>
 
 **Command line:** </br>
 ```~/Documents/landsat_process/0_gen_espa_list.sh ./p012r031/images/ "p012r031"```
 <br>
 <br>
 
-#### 1_espa_download.sh
-Downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
+#### Download: 1_espa_download.sh
+This script downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
 
 **Usage:** </br>
 ```1_espa_download.sh [email] [order ID] [dir]```
@@ -30,37 +32,56 @@ Downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
 <br>
 <br>
 
-#### 2_unzip_archive.sh
+#### Unzip: 2_unzip_archive.sh
 This script extracts each downaloded .tar.gz to its own directory. <br>
 Image directory will contain single-band images (raw and sr) and QA bands
 <br>
 <br>
 
-#### 3_remove_L1G.sh
-Before stacking images, remove all L1G files. <br>
-(Georeferencing of L1G not suitable for time series analysis, use only if image is L1T)
+#### Remove L1G: 3_remove_L1G.sh
+This script removes all L1G images prior to stacking. Only L1T images will be stacked and used in time series analysis<br>
 <br>
 <br>
 
-#### 4_stack_TIFF
-Create stack of original bands plus Fmask result <br> 
+#### 8-band stack: 4_stack_TIFF
+This script create stacks of original bands plus Fmask result and organizes image directories <br> 
 *Band order:* 1-5, 7, 6, fmask [8 band stack]
 <br>
 <br>
 
-#### 5_TC_Transform
-Output BGW stack <br>
+
+## Optional data management:
+
+### Tranformations:
+
+#### transform_TC.sh
+Applies Tassled Cap tranformation for Landsat reflectance factor data (Crist 1985)
+using /ceholden/misc/spectral/transforms.py.
+
+Generates new 3-band "L*_BGW.tif" stack <br>
 *Band order:* Brightness, Greenness, Wetness
 <br>
 <br>
 
-#### 6_stack_wTC
+#### transform_index.sh
+Applies a variety of index tranformations using /ceholden/misc/spectral/transforms.py. 
+Options: NDVI, NBR, NDMI, EVI.
+Generates new "L*_index.tif" stack <br>
+<br>
+<br>
+
+
+### Stacking:
+
+#### stack_wTC
 Create stack of original bands, TC, and fmask result <br>
 *Band order:* 1-5,7 6, B, G, W, fmask [11 band stack]
 <br>
 <br>
 
-### Additional scripts: 
+
+### Directory Cleanup: 
+
 #### clean_remove_cloudy.sh
 Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to ```./images/cloudy/``` directory.
 <br>
@@ -86,8 +107,11 @@ Remove _stack and _BGW images after creating 11-band stack
 <br>
 <br>
 
+
+### Create example image:
+
 #### create_example_img.sh
-Creates ```example_img``` file <br>
+Creates ```example_img``` file for time series model configuration<br>
 
 
 
