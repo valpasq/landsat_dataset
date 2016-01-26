@@ -19,7 +19,7 @@ Use this script to create a list of images for an ESPA order Script is used afte
 <br>
 <br>
 
-#### 1_espa_download.sh
+#### ```1_espa_download.sh```
 This script downloads single or all orders from ESPA; eliminates need to use DownloadThemAll
 
 **Usage:** </br>
@@ -30,18 +30,18 @@ This script downloads single or all orders from ESPA; eliminates need to use Dow
 <br>
 <br>
 
-#### 2_unzip_archive.sh
+#### ```2_unzip_archive.sh```
 This script extracts each downaloded .tar.gz to its own directory. <br>
 Image directory will contain single-band images (raw and sr) and QA bands
 <br>
 <br>
 
-#### 3_remove_L1G.sh
+#### ```3_remove_L1G.sh```
 This script removes all L1G images prior to stacking. Only L1T images will be stacked and used in time series analysis<br>
 <br>
 <br>
 
-#### 4_stack_TIFF
+#### ```4_stack_TIFF```
 This script create stacks of original bands plus Fmask result and organizes image directories <br> 
 *Band order:* 1-5, 7, 6, fmask [8 band stack]
 <br>
