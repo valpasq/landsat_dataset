@@ -18,7 +18,7 @@ for l in $l_file; do
    	echo $name
    	echo "Executing code..."
    	~/Documents/misc/spectral/transforms.py \
-   	-v $l $name evi ndvi nbr ndmi 
+   	-v $l $name ndvi nbr 
    	
 done
 
