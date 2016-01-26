@@ -1,10 +1,9 @@
 #!/bin/bash
-#$ -l h_rt=72:00:00
+#$ -l h_rt=24:00:00
 #$ -V
 #$ -N index_calc
 #$ -j y
 
-source ~/modules.sh
 
 cd $1
 
