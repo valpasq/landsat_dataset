@@ -48,9 +48,7 @@ This script create stacks of original bands plus Fmask result and organizes imag
 <br>
 
 
-## Optional data management:
-
-### Tranformations:
+## Tranformations:
 
 #### ```transform_TC.sh```
 Applies Tassled Cap tranformation for Landsat reflectance factor data (Crist 1985)
@@ -69,7 +67,7 @@ Generates new "L*_index.tif" stack <br>
 <br>
 
 
-### Stacking:
+## Stacking:
 
 #### ```stack_wTC.sh```
 Create stack of original bands, TC, and fmask result <br>
@@ -78,7 +76,7 @@ Create stack of original bands, TC, and fmask result <br>
 <br>
 
 
-### Directory Clean-up: 
+## Directory Clean-up: 
 
 #### ```clean_remove_cloudy.sh```
 Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to ```./images/cloudy/``` directory.
@@ -105,8 +103,7 @@ Remove _stack and _BGW images after creating 11-band stack
 <br>
 <br>
 
-
-### Create example image:
+## Create example image:
 
 #### ```create_example_img.sh```
 Creates ```example_img``` file for time series model configuration<br>
