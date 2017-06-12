@@ -11,12 +11,11 @@ WRS=$2
 
 cd $here
 
-output=./${WRS}_submit.txt
+output=./${WRS}_submit_06122017.txt
 
-cat ./LSR_LANDSAT_ETM_COMBINED_${WRS}.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
-cat ./LSR_LANDSAT_TM_${WRS}.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
-# cat ./LANDSAT_8_28473.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
+cat ./LANDSAT_ETM_C1_${WRS}.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
+cat ./LANDSAT_8_C1_${WRS}.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
 
-n=$(cat ./${WRS}_submit.txt | wc -l)
+n=$(cat $output | wc -l)
 
 echo "You have $n Landsat images in your text file"
