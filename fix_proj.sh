@@ -16,7 +16,7 @@ here=$1
 
 cd $here
 
-l_file=`find ./ -name '*_all'`
+l_file=`find ./ -name '*all'`
 for l in $l_file; do
     echo "Fixing projection for $l"
     gdal_edit.py -a_srs "EPSG:32618" $l
