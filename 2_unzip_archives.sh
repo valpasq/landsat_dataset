@@ -28,24 +28,15 @@ fi
 
 for archive in $(find ./ -maxdepth 1 -name '*tar.gz'); do
     echo "<----- $i / $n: $(basename $archive)"
-    
+
     # Create temporary folder for storage
     mkdir temp
     
     # Extract archive to temporary folder
     tar -xzvf $archive -C temp/
     
-    # Find ID based on MTL file's filename
-    mtl=$(find temp/ -name 'L*MTL.txt')
-    
-    # Test to make sure we found it
-    if [ ! -f $mtl ]; then
-        echo "Could not find MTL file for $archive"
-        break
-    fi
-    
-    # Use AWK to remove _MTL.txt
-    id=$(basename $mtl | awk -F '_' '{ print $1 }')
+    # Use AWK to extract image ID
+    id=$(basename $archive | awk -F '-' '{ print $1 }')
     
     # Move archive into temporary folder
     mv $archive temp/
