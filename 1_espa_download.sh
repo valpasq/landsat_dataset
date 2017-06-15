@@ -4,14 +4,22 @@
 #$ -N download_landsat
 #$ -j y
 
-EMAIL=$1
-ORDER=$2
-DIR=$3
+# email address associated with ESPA account
+email=$1
 
-source ~/modules.sh
+# order number, e.g. espa-valpasq@bu.edu-06122017-142613-752
+order=$2
 
-cd ~/Documents/landsat_process/bulk-downloader/
+# directory to download to
+dir=$3
 
-python download_espa_order.py -e $EMAIL \
-	-o $ORDER -c \
-	-d $DIR
+# ESPA user name and password
+user=$4
+password=$5
+
+# path for bulk download script
+cd /projectnb/landsat/users/valpasq/landsat_dataset/bulk-downloader/
+
+./download_espa_order.py -e $email -o $order \
+-d $dir -u $user -p $password
+
