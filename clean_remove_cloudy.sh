@@ -4,7 +4,8 @@
 #$ -N remove_cloudy
 #$ -j y
 
-module load batch_landsat/v4
+#module load batch_landsat/v4
+#source ~/modules.sh
 
 if [ -z "$1" ]; then
     echo "Error - please specify a directory with extracted Landsat archives. Usage:"
@@ -16,4 +17,5 @@ here=$1
 
 cd $here
 
-remove_cloudy.py -v --fmask "*stack" --band 8 --clear "0, 1" 20 ./
+~/Documents/misc/landsat/remove_cloudy.py \
+	-v --dry-run --fmask "*all" --band 11 --clear "0, 1, 3" 80 ./
