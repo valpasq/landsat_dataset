@@ -1,10 +1,20 @@
 Automatically downloads all completed espa scenes.  Each scene is downloaded to the `--target_directory` and organized by order.
 
 # Installation
-* Tested with python 2.7.
-* Clone this repository: `git clone https://github.com/USGS-EROS/espa-bulk-downloader.git bulk-downloader`
-* `cd bulk-downloader`
-* `python ./download_espa_order.py -h`
+* Note: These were tested with python 2.7.
+
+* Clone this repository:
+```
+git clone https://github.com/USGS-EROS/espa-bulk-downloader.git bulk-downloader
+cd bulk-downloader
+python ./download_espa_order.py -h
+```
+* Install with pip automatically:
+```
+pip install git+https://github.com/USGS-EROS/espa-bulk-downloader.git
+download_espa_order.py -h
+```
+* Alternatively you can just download the stand alone zip file which only requires python to run
 
 ### Runtime options
 `-e or --email` The email address used to submit the order
@@ -13,9 +23,13 @@ Automatically downloads all completed espa scenes.  Each scene is downloaded to 
 
 `-d or --target_directory` The local directory to store downloaded scenes
 
-Linux/Mac Example: `python ./download_espa_order.py -e your_email@server.com -o ALL -d /some/directory/with/free/space`
+`-u or --username` Your ERS username
 
-Windows Example: `C:\python27\python download_espa_order.py -e your_email@server.com -o ALL -d C:\some\directory\with\free\space`
+`-p or --password` Your ERS password
+
+Linux/Mac Example: `python ./download_espa_order.py -e your_email@server.com -o ALL -d /some/directory/with/free/space -u foo -p bar`
+
+Windows Example: `C:\python27\python download_espa_order.py -e your_email@server.com -o ALL -d C:\some\directory\with\free\space -u foo -p bar`
 
 # Notes
 Retrieves all completed scenes for the user/order
