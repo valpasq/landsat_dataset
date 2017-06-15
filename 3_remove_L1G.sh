@@ -1,4 +1,8 @@
 #!/bin/bash
+#$ -l h_rt=72:00:00
+#$ -V
+#$ -N remove_L1G
+#$ -j y
 
 if [ -z "$1" ]; then
     echo "Error - please specify a directory with extracted Landsat archives. Usage:"
