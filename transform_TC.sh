@@ -1,14 +1,13 @@
 #!/bin/bash
-#$ -l h_rt=72:00:00
+#$ -l h_rt=24:00:00
 #$ -V
 #$ -N BGW_transform
 #$ -j y
 
-source ~/modules.sh
-
 cd $1
 
-l_file=`find . -name 'L*stack' -type f`
+l_file=`find -L . -name 'L*stack' -type f`
+echo $l_file
 for l in $l_file; do
    	echo "Running on file:"
    	echo $l
@@ -17,7 +16,7 @@ for l in $l_file; do
    	echo "Name of BGW stack:"
    	echo $name
    	echo "Executing code..."
-   	~/Documents/misc/spectral/transforms.py \
+   	python ~/Documents/misc/spectral/transforms.py \
    	-v $l $name brightness greenness wetness
 done
 
