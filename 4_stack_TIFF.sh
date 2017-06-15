@@ -4,7 +4,6 @@
 #$ -N landsat_stack
 #$ -j y
 
-module load gdal/1.10.0
 module load batch_landsat
 
 if [ -z "$1" ]; then
@@ -23,8 +22,6 @@ fmask="*cfmask.tif"
 landsat_stack.py -q -p --files "$sr $fmask" \
     --ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 255" \
     --utm 19 -o "_stack" \
-    --format "ENVI" --co "INTERLEAVE=BIP" --percentile 1 ./
-    
-#    --image="/projectnb/landsat/projects/IDS/p012r031/images/LE70120311999188EDC00/LE70120311999188EDC00_stack" ./
-    
-    
+    --format "ENVI" --co "INTERLEAVE=BIP" \
+    --percentile 1 ./
+    #--image="/projectnb/landsat/projects/Chile/p231r092/images/LT52310922009269COA00/LT52310922009269COA00_stack" ./
