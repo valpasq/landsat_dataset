@@ -7,17 +7,13 @@
 cd $1
 
 l_file=`find -L . -name 'L*stack' -type f`
-echo $l_file
 for l in $l_file; do
+   	id=$(basename $(dirname $l))
    	echo "Running on file:"
-   	echo $l
-    extract=${l:0:45}
-   	name=${extract}_BGW.tif
-   	echo "Name of BGW stack:"
-   	echo $name
+   	echo $id
    	echo "Executing code..."
-   	python ~/Documents/misc/spectral/transforms.py \
-   	-v $l $name brightness greenness wetness
+   	python /projectnb/landsat/users/valpasq/misc/spectral/transforms.py \
+   		-v $l ./$id/${id}_BGW.tif brightness greenness wetness
 done
 
 echo "Done!"
