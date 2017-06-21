@@ -16,7 +16,7 @@ here=$1
 cd $here
 
 # Name of example image (stack to this extent)
-img="/projectnb/landsat/projects/Massachusetts/p012r031/images/LT50120311988166PAC05/LT50120311988166PAC05_all"
+img=$2
 
 # Make temp directories for each sensor
 if [ ! -d TMETM ]; then
@@ -36,7 +36,7 @@ fi
 
 for mtl in $(find ./ -name 'L*MTL.txt'); do
     id=$(basename $(dirname $mtl))
-    
+    utm=$(grep "UTM_ZONE" $mtl | tr -d ' ' | awk -F '=' '{ print $2 }')
     l1t=$(grep "LANDSAT_8" $mtl)
 
     if [ "$l1t" == "" ]; then
@@ -56,7 +56,7 @@ qa="*bqa.tif"
 
 landsat_stack.py -q -p --files "$sr $qa" \
 	--ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 1" \
-	--utm 19 -o "_stack" \
+	--utm $utm -o "_stack" \
 	--format "ENVI" --co "INTERLEAVE=BIP" \
 	--image="$img" ./TMETM/
 
@@ -66,7 +66,7 @@ qa="*bqa.tif"
 
 landsat_stack.py -q -p --files "$sr $qa" \
     --ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 1" \
-    --utm 19 -o "_stack" \
+    --utm $utm -o "_stack" \
     --format "ENVI" --co "INTERLEAVE=BIP" \
     --image="$img" ./OLI/
 
