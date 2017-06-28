@@ -21,7 +21,7 @@ TC="L*BGW.tif"
 
 landsat_stack.py -q -p --files "$stack; $TC; $stack" \
     -b "1 2 3 4 5 6 7; 1 2 3; 8" \
-    -n "-9999 -9999 -9999 -9999 -9999 -9999 -9999; -9999 -9999 -9999; 255" \
+    -n "-9999 -9999 -9999 -9999 -9999 -9999 -9999; -9999 -9999 -9999; 1" \
     --utm 10 -o "*_all" \
     --format "ENVI" --co "INTERLEAVE=BIP" --max_extent ./
 
