@@ -36,7 +36,7 @@ for archive in $(find ./ -maxdepth 1 -name '*tar.gz'); do
     tar -xzvf $archive -C temp/
     
     # Use AWK to extract image ID
-    id=$(basename $archive | awk -F '-' '{ print $1 }')
+    id=$(grep "LANDSAT_SCENE_ID" ./temp/*MTL* | tr -d ' ' | awk -F '=' '{ print $2 }' | tr -d '"')
     
     # Move archive into temporary folder
     mv $archive temp/
